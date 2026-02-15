@@ -1,0 +1,375 @@
+[
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Generic",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "TypeVar",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "datetime;",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "functools",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "functools",
+        "description": "functools",
+        "detail": "functools",
+        "documentation": {}
+    },
+    {
+        "label": "ABCMeta",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "abstractmethod",
+        "importPath": "abc",
+        "description": "abc",
+        "isExtraImport": true,
+        "detail": "abc",
+        "documentation": {}
+    },
+    {
+        "label": "Template",
+        "importPath": "string.templatelib",
+        "description": "string.templatelib",
+        "isExtraImport": true,
+        "detail": "string.templatelib",
+        "documentation": {}
+    },
+    {
+        "label": "Interpolation",
+        "importPath": "string.templatelib",
+        "description": "string.templatelib",
+        "isExtraImport": true,
+        "detail": "string.templatelib",
+        "documentation": {}
+    },
+    {
+        "label": "convert",
+        "importPath": "string.templatelib",
+        "description": "string.templatelib",
+        "isExtraImport": true,
+        "detail": "string.templatelib",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "Predicate",
+        "kind": 6,
+        "importPath": "Predicate",
+        "description": "Predicate",
+        "peekOfCode": "class Predicate:\n    def __init__(self, fn: Callable):\n        self.fn = fn;\n    def __and__(self, other: \"Predicate\") -> \"Predicate\":\n        return Predicate(fn=(self.fn and other.fn))\n    def __land__(self, other: \"Predicate\") -> \"Predicate\":\n        return Predicate(fn=(self.fn and other.fn))\n    def __or__(self, other: \"Predicate\") -> \"Predicate\":\n        return Predicate(fn=(self.fn or self.fn))\n    def __call__(self, *args):",
+        "detail": "Predicate",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 6,
+        "importPath": "Predicate",
+        "description": "Predicate",
+        "peekOfCode": "class User:\n    name: str\n    staff: bool\n    admin: bool\n    active: bool\n    def __str__(self) -> str:\n        return u.name;\ndef log(msg: str) -> None:\n    print( str(datetime.now()) + \" \" + msg)\ndef is_active(u: User) -> bool:",
+        "detail": "Predicate",
+        "documentation": {}
+    },
+    {
+        "label": "log",
+        "kind": 2,
+        "importPath": "Predicate",
+        "description": "Predicate",
+        "peekOfCode": "def log(msg: str) -> None:\n    print( str(datetime.now()) + \" \" + msg)\ndef is_active(u: User) -> bool:\n    if u.active:\n        log(str(u) + \" está ativo.\")\n        return True\n    else:\n        log(str(u) + \" não está ativo\")\n        return False\ndef is_admin(u: User) -> bool:",
+        "detail": "Predicate",
+        "documentation": {}
+    },
+    {
+        "label": "is_active",
+        "kind": 2,
+        "importPath": "Predicate",
+        "description": "Predicate",
+        "peekOfCode": "def is_active(u: User) -> bool:\n    if u.active:\n        log(str(u) + \" está ativo.\")\n        return True\n    else:\n        log(str(u) + \" não está ativo\")\n        return False\ndef is_admin(u: User) -> bool:\n    if u.admin:\n        log(str(u) + \" é administrador.\")",
+        "detail": "Predicate",
+        "documentation": {}
+    },
+    {
+        "label": "is_admin",
+        "kind": 2,
+        "importPath": "Predicate",
+        "description": "Predicate",
+        "peekOfCode": "def is_admin(u: User) -> bool:\n    if u.admin:\n        log(str(u) + \" é administrador.\")\n        return True;\n    else:\n        log(str(u) + \" não é administrador.\")\n        return False;\ndef is_staff(u: User) -> bool:\n    if u.staff:\n        log(str(u) + \" é gerente.\")",
+        "detail": "Predicate",
+        "documentation": {}
+    },
+    {
+        "label": "is_staff",
+        "kind": 2,
+        "importPath": "Predicate",
+        "description": "Predicate",
+        "peekOfCode": "def is_staff(u: User) -> bool:\n    if u.staff:\n        log(str(u) + \" é gerente.\")\n        return True;\n    else:\n        log(str(u) + \" não é gerente.\")\n        return False;\nusers: list[User] = [\n    User(name=\"john_h\",     staff=False, admin=False, active=True),\n    User(name=\"isabela_t\",  staff=True,  admin=False, active=True),",
+        "detail": "Predicate",
+        "documentation": {}
+    },
+    {
+        "label": "SpecificationMeta",
+        "kind": 6,
+        "importPath": "SpecificationPattern",
+        "description": "SpecificationPattern",
+        "peekOfCode": "class SpecificationMeta(ABCMeta):\n    \"\"\"\n    Metaclass that automatically decorates `is_satisfied_by` with the logging decorator.\n    \"\"\"\n    def __new__(cls, name: str, bases: tuple[type, ...], namespace: dict[str, Any]) -> SpecificationMeta:\n        _class = super().__new__(cls, name, bases, namespace)\n        # Decorate is_satisfied_by with the logging decorator if both methods exist\n        if hasattr(_class, \"is_satisfied_by\") and hasattr(_class, \"log\"):\n            # Use the classmethod _log, not the instance method log\n            _class.is_satisfied_by = _class._log(_class.is_satisfied_by)",
+        "detail": "SpecificationPattern",
+        "documentation": {}
+    },
+    {
+        "label": "Specification",
+        "kind": 6,
+        "importPath": "SpecificationPattern",
+        "description": "SpecificationPattern",
+        "peekOfCode": "class Specification(Generic[T], metaclass=SpecificationMeta):\n    \"\"\"\n    Base class for the predicate-based specification pattern.\n    \"\"\"\n    description = \"No description provided.\"\n    def __init__(self) -> None:\n        self.errors: dict[str, str] = {}\n    @classmethod\n    def _log(\n        cls, func: Callable[[Specification[T], T], bool]",
+        "detail": "SpecificationPattern",
+        "documentation": {}
+    },
+    {
+        "label": "_AndOrSpecification",
+        "kind": 6,
+        "importPath": "SpecificationPattern",
+        "description": "SpecificationPattern",
+        "peekOfCode": "class _AndOrSpecification(Specification[T]):\n    \"\"\"Base class for AND/OR composite specifications.\"\"\"\n    def __init__(self, spec_a: Specification[T], spec_b: Specification[T]) -> None:\n        super().__init__()\n        self._specs = (spec_a, spec_b)\n    def _report_error(self, result: bool) -> None:\n        \"\"\"Collect errors from child specifications.\"\"\"\n        for spec in self._specs:\n            self.errors.update(spec.errors)\n    def is_satisfied_by(self, candidate: T) -> bool:",
+        "detail": "SpecificationPattern",
+        "documentation": {}
+    },
+    {
+        "label": "_AndSpecification",
+        "kind": 6,
+        "importPath": "SpecificationPattern",
+        "description": "SpecificationPattern",
+        "peekOfCode": "class _AndSpecification(_AndOrSpecification[T]):\n    def _check(self, spec_a: bool, spec_b: bool) -> bool:\n        return spec_a and spec_b\nclass _OrSpecification(_AndOrSpecification[T]):\n    def _check(self, spec_a: bool, spec_b: bool) -> bool:\n        return spec_a or spec_b\nclass _NotSpecification(Specification[T]):\n    description_format = \"Expected condition to NOT satisfy: {0}\"\n    def __init__(self, spec: Specification[T]) -> None:\n        super().__init__()",
+        "detail": "SpecificationPattern",
+        "documentation": {}
+    },
+    {
+        "label": "_OrSpecification",
+        "kind": 6,
+        "importPath": "SpecificationPattern",
+        "description": "SpecificationPattern",
+        "peekOfCode": "class _OrSpecification(_AndOrSpecification[T]):\n    def _check(self, spec_a: bool, spec_b: bool) -> bool:\n        return spec_a or spec_b\nclass _NotSpecification(Specification[T]):\n    description_format = \"Expected condition to NOT satisfy: {0}\"\n    def __init__(self, spec: Specification[T]) -> None:\n        super().__init__()\n        self._spec = spec\n        self.description = self.description_format.format(self._spec.description)\n    def _report_error(self, inner_result: bool) -> None:",
+        "detail": "SpecificationPattern",
+        "documentation": {}
+    },
+    {
+        "label": "_NotSpecification",
+        "kind": 6,
+        "importPath": "SpecificationPattern",
+        "description": "SpecificationPattern",
+        "peekOfCode": "class _NotSpecification(Specification[T]):\n    description_format = \"Expected condition to NOT satisfy: {0}\"\n    def __init__(self, spec: Specification[T]) -> None:\n        super().__init__()\n        self._spec = spec\n        self.description = self.description_format.format(self._spec.description)\n    def _report_error(self, inner_result: bool) -> None:\n        \"\"\"Report error when the inner specification succeeded (so NOT fails).\"\"\"\n        if inner_result is True:  # NOT fails because inner succeeded\n            self.errors.update({self._spec.class_name: self.description})",
+        "detail": "SpecificationPattern",
+        "documentation": {}
+    },
+    {
+        "label": "PositiveIntegerSpecification",
+        "kind": 6,
+        "importPath": "SpecificationPattern",
+        "description": "SpecificationPattern",
+        "peekOfCode": "class PositiveIntegerSpecification(Specification[int]):\n    description = \"A positive integer\"\n    def is_satisfied_by(self, candidate: int) -> bool:\n        return candidate > 0\nclass SmallerThanSpecification(Specification[int]):\n    description = \"Smaller than 10\"\n    value: int\n    def __init__(self, value: int) -> None:\n        super().__init__()\n        self.value = value",
+        "detail": "SpecificationPattern",
+        "documentation": {}
+    },
+    {
+        "label": "SmallerThanSpecification",
+        "kind": 6,
+        "importPath": "SpecificationPattern",
+        "description": "SpecificationPattern",
+        "peekOfCode": "class SmallerThanSpecification(Specification[int]):\n    description = \"Smaller than 10\"\n    value: int\n    def __init__(self, value: int) -> None:\n        super().__init__()\n        self.value = value\n    def is_satisfied_by(self, candidate: int) -> bool:\n        return candidate < self.value\nSPEC: Specification[int] = PositiveIntegerSpecification() & SmallerThanSpecification(12)\nif __name__ == '__main__':",
+        "detail": "SpecificationPattern",
+        "documentation": {}
+    },
+    {
+        "label": "__all__",
+        "kind": 5,
+        "importPath": "SpecificationPattern",
+        "description": "SpecificationPattern",
+        "peekOfCode": "__all__ = [\"Specification\"]\nT = TypeVar(\"T\")\nclass SpecificationMeta(ABCMeta):\n    \"\"\"\n    Metaclass that automatically decorates `is_satisfied_by` with the logging decorator.\n    \"\"\"\n    def __new__(cls, name: str, bases: tuple[type, ...], namespace: dict[str, Any]) -> SpecificationMeta:\n        _class = super().__new__(cls, name, bases, namespace)\n        # Decorate is_satisfied_by with the logging decorator if both methods exist\n        if hasattr(_class, \"is_satisfied_by\") and hasattr(_class, \"log\"):",
+        "detail": "SpecificationPattern",
+        "documentation": {}
+    },
+    {
+        "label": "T",
+        "kind": 5,
+        "importPath": "SpecificationPattern",
+        "description": "SpecificationPattern",
+        "peekOfCode": "T = TypeVar(\"T\")\nclass SpecificationMeta(ABCMeta):\n    \"\"\"\n    Metaclass that automatically decorates `is_satisfied_by` with the logging decorator.\n    \"\"\"\n    def __new__(cls, name: str, bases: tuple[type, ...], namespace: dict[str, Any]) -> SpecificationMeta:\n        _class = super().__new__(cls, name, bases, namespace)\n        # Decorate is_satisfied_by with the logging decorator if both methods exist\n        if hasattr(_class, \"is_satisfied_by\") and hasattr(_class, \"log\"):\n            # Use the classmethod _log, not the instance method log",
+        "detail": "SpecificationPattern",
+        "documentation": {}
+    },
+    {
+        "label": "render_md",
+        "kind": 2,
+        "importPath": "Templates",
+        "description": "Templates",
+        "peekOfCode": "def render_md(template: Template) -> str:\n    \"\"\"\n    Render a template string as Markdown.\n    The template string is iterated and each part is processed.\n    Strings are appended as is, while Interpolations are converted\n    and formatted according to their conversion and format specification.\n    Any other part type raises a TypeError.\n    :param template: The template string to render.\n    :return: The rendered Markdown string.\n    \"\"\"",
+        "detail": "Templates",
+        "documentation": {}
+    },
+    {
+        "label": "journal_entry",
+        "kind": 2,
+        "importPath": "Templates",
+        "description": "Templates",
+        "peekOfCode": "def journal_entry(entry_date: date, mood: str, content: str) -> str:\n    template = \"\"\"\n# Journal: {entry_date}\n**Mood:** {mood}\n{content}\n\"\"\"\n    return render_md(template)\n# Usage\nentry = journal_entry(date.today(), \"😊 productive\", \"Worked on the Markdown generator.\")\nprint(entry)",
+        "detail": "Templates",
+        "documentation": {}
+    },
+    {
+        "label": "daily_log",
+        "kind": 2,
+        "importPath": "Templates",
+        "description": "Templates",
+        "peekOfCode": "def daily_log(day: date, activities: list[tuple[str, str]]) -> str:\n    # activities: list of (description, duration)\n    template = \"\"\"\n## {day}\n### Completed\n{activities}\n\"\"\"\n    return render_md(template)\n# But we need to format the activities as a bullet list. \n# We could pre‑format them before interpolation:",
+        "detail": "Templates",
+        "documentation": {}
+    },
+    {
+        "label": "format_activities",
+        "kind": 2,
+        "importPath": "Templates",
+        "description": "Templates",
+        "peekOfCode": "def format_activities(activities):\n    return '\\n'.join(f\"- {desc} ({dur})\" for desc, dur in activities)\nlog = daily_log(\n    date.today(),\n    format_activities([(\"Morning run\", \"30 min\"), (\"Read\", \"1h\")])\n)\ndef workout_log(exercises: list[dict]) -> str:\n    # Each exercise: {\"name\": str, \"sets\": int, \"reps\": int, \"weight\": str}\n    template = \"\"\"\n## Workout – {date.today()}",
+        "detail": "Templates",
+        "documentation": {}
+    },
+    {
+        "label": "workout_log",
+        "kind": 2,
+        "importPath": "Templates",
+        "description": "Templates",
+        "peekOfCode": "def workout_log(exercises: list[dict]) -> str:\n    # Each exercise: {\"name\": str, \"sets\": int, \"reps\": int, \"weight\": str}\n    template = \"\"\"\n## Workout – {date.today()}\n{exercises}\n\"\"\"\n    # Pre‑format exercises as a Markdown table\n    rows = [\"| Exercise | Sets | Reps | Weight |\",\n            \"|----------|------|------|--------|\"]\n    for ex in exercises:",
+        "detail": "Templates",
+        "documentation": {}
+    },
+    {
+        "label": "escape_markdown",
+        "kind": 2,
+        "importPath": "Templates",
+        "description": "Templates",
+        "peekOfCode": "def escape_markdown(text: str) -> str:\n    # Escape characters that have special meaning in Markdown\n    return re.sub(r'([\\\\`*_{}[\\]()#+\\-.!])', r'\\\\\\1', text)\ndef render_md_ext(template: Template) -> str:\n    parts = []\n    for part in template:\n        if isinstance(part, str):\n            parts.append(part)\n        elif isinstance(part, Interpolation):\n            # Handle built‑in conversions",
+        "detail": "Templates",
+        "documentation": {}
+    },
+    {
+        "label": "render_md_ext",
+        "kind": 2,
+        "importPath": "Templates",
+        "description": "Templates",
+        "peekOfCode": "def render_md_ext(template: Template) -> str:\n    parts = []\n    for part in template:\n        if isinstance(part, str):\n            parts.append(part)\n        elif isinstance(part, Interpolation):\n            # Handle built‑in conversions\n            if part.conversion in ('a', 'r', 's'):\n                value = convert(part.value, part.conversion)\n            elif part.conversion == 'm':",
+        "detail": "Templates",
+        "documentation": {}
+    },
+    {
+        "label": "entry",
+        "kind": 5,
+        "importPath": "Templates",
+        "description": "Templates",
+        "peekOfCode": "entry = journal_entry(date.today(), \"😊 productive\", \"Worked on the Markdown generator.\")\nprint(entry)\ndef daily_log(day: date, activities: list[tuple[str, str]]) -> str:\n    # activities: list of (description, duration)\n    template = \"\"\"\n## {day}\n### Completed\n{activities}\n\"\"\"\n    return render_md(template)",
+        "detail": "Templates",
+        "documentation": {}
+    },
+    {
+        "label": "log",
+        "kind": 5,
+        "importPath": "Templates",
+        "description": "Templates",
+        "peekOfCode": "log = daily_log(\n    date.today(),\n    format_activities([(\"Morning run\", \"30 min\"), (\"Read\", \"1h\")])\n)\ndef workout_log(exercises: list[dict]) -> str:\n    # Each exercise: {\"name\": str, \"sets\": int, \"reps\": int, \"weight\": str}\n    template = \"\"\"\n## Workout – {date.today()}\n{exercises}\n\"\"\"",
+        "detail": "Templates",
+        "documentation": {}
+    },
+    {
+        "label": "user_input",
+        "kind": 5,
+        "importPath": "Templates",
+        "description": "Templates",
+        "peekOfCode": "user_input = \"**important** *text*\"\nsafe = \"User wrote: {user_input!m}\"\nprint(render_md_ext(safe))  # User wrote: \\*\\*important\\*\\* \\*text\\*",
+        "detail": "Templates",
+        "documentation": {}
+    },
+    {
+        "label": "safe",
+        "kind": 5,
+        "importPath": "Templates",
+        "description": "Templates",
+        "peekOfCode": "safe = \"User wrote: {user_input!m}\"\nprint(render_md_ext(safe))  # User wrote: \\*\\*important\\*\\* \\*text\\*",
+        "detail": "Templates",
+        "documentation": {}
+    }
+]
