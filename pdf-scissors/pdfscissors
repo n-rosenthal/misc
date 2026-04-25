@@ -1,0 +1,64 @@
+#!/usr/bin/env python3
+"""
+Extract a range of pages from a PDF.
+Supports writing to stdout (use '-' or '/dev/stdout' as output file).
+
+Usage:
+    pdfscissors input.pdf output.pdf page_init page_end
+    pdfscissors input.pdf - 3 7          # write to stdout
+    pdfscissors - output.pdf 3 7         # read from stdin (if input is '-' or '/dev/stdin')
+"""
+
+import sys
+from pypdf import PdfReader, PdfWriter
+
+def extract_pages(input_pdf, output_pdf, page_init, page_end):
+    # Read input
+    if input_pdf in ('-', '/dev/stdin'):
+        reader = PdfReader(sys.stdin.buffer)
+    else:
+        reader = PdfReader(input_pdf)
+
+    total_pages = len(reader.pages)
+
+    if page_init < 1:
+        raise ValueError(f"page_init must be >= 1, got {page_init}")
+    if page_end > total_pages:
+        raise ValueError(f"page_end ({page_end}) exceeds total pages ({total_pages})")
+    if page_init > page_end:
+        raise ValueError(f"page_init ({page_init}) > page_end ({page_end})")
+
+    writer = PdfWriter()
+    for page_num in range(page_init - 1, page_end):
+        writer.add_page(reader.pages[page_num])
+
+    # Write output
+    if output_pdf in ('-', '/dev/stdout'):
+        writer.write(sys.stdout.buffer)
+    else:
+        with open(output_pdf, "wb") as out_file:
+            writer.write(out_file)
+
+def main():
+    if len(sys.argv) != 5:
+        print("Usage: pdfscissors input.pdf output.pdf page_init page_end")
+        print("       Use '-' for input.pdf or output.pdf to read/write from/to stdin/stdout")
+        sys.exit(1)
+
+    input_path = sys.argv[1]
+    output_path = sys.argv[2]
+    try:
+        start = int(sys.argv[3])
+        end = int(sys.argv[4])
+    except ValueError:
+        print("Error: page_init and page_end must be integers.")
+        sys.exit(1)
+
+    try:
+        extract_pages(input_path, output_path, start, end)
+    except Exception as e:
+        print(f"Error: {e}", file=sys.stderr)
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()
