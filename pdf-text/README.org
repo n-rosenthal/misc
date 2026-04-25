@@ -1,0 +1,62 @@
+#+author: nrdc
+#+date: \date
+#+title: =pdf-text=
+
+* =pdf-text=
+=pdf-text= extracts all text from a =.PDF= file and writes it either to the terminal or to a plain text file. It uses the =pdfplumber= library, which handles complex layouts (columns, tables, spacing) much better than simpler PDF readers.
+
+The script takes one or two command-line arguments:
+- a path to the input =.PDF= file (or =-= or =/dev/stdin= to read from standard input);
+- optionally, a name for the output =.txt= file. If omitted, the text is printed to standard output.
+
+** Requirements
+1. =python3=; and
+2. =pdfplumber= (install with =pip install pdfplumber=).
+
+** Usage
+
+#+BEGIN_SRC bash
+python3 pdftext.py input.pdf [output.txt]
+#+END_SRC
+
+If you use =-= as the input file, the script reads the PDF from standard input - perfect for piping.
+
+*** Example
+#+BEGIN_SRC bash
+python3 pdftext.py document.pdf pages.txt
+#+END_SRC
+Extracts all text from =document.pdf= and saves it into =pages.txt=.
+
+*** Example with pipeline (using pdf‑scissor)
+#+BEGIN_SRC bash
+pdfscissor bigfile.pdf - 5 10 | pdftext - chapter.txt
+#+END_SRC
+First extracts pages 5-10 from =bigfile.pdf=, then writes the text of those pages into =chapter.txt=.
+
+*** How It Works
+1. **Open the PDF**: =pdfplumber.open()= reads the file (or standard input stream).
+2. **Iterate pages**: For each page, =page.extract_text()= returns a string with the page's text (or =None= if no text is found).
+3. **Add page separators**: Each page's text is prefixed with a header like =--- Page N ---= for clarity.
+4. **Write output**: If an output file name is given, the combined text is written to that file; otherwise it is printed to standard output.
+
+** My Usage
+I keep this script in my everyday toolkit. After ensuring the shebang line (=#!/usr/bin/env python3=) is present:
+
+#+BEGIN_SRC bash
+//  Make it executable
+chmod +x /path/to/pdftext.py
+
+//  Rename it to a short command
+mv /path/to/pdftext.py /path/to/pdftext
+
+//  Move it into a directory that is on $PATH
+mv /path/to/pdftext ~/.local/bin/
+
+//  Ensure ~/.local/bin/ is in $PATH (add to ~/.bashrc if needed)
+export PATH="$HOME/.local/bin:$PATH"
+
+//  Alternatively, create a symbolic link
+ln -s ~/path/to/pdftext ~/.local/bin/pdftext
+#+END_SRC
+
+Now I can run =pdftext= from anywhere and use it in pipelines with =pdfscissor=.
