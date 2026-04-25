@@ -1,0 +1,59 @@
+#+author: nrdc
+#+date: \date
+#+title: =pdf-scissor=
+
+* =pdf-scissor=
+=pdf-scissor= is a simple tool for extracting a range of pages from a =.PDF= file. The current implementation uses the =pydf= library. The script takes four command-line arguments:
+- a path to the =.PDF= file;
+- a name for the output file;
+- the starting page number; and
+- the ending page number (*inclusive*!)
+
+** Requirements
+1. =python3=; and
+2. =pypdf=.
+
+** Usage
+
+#+BEGIN_SRC bash
+python3 PDFScissors.py input.pdf output.pdf page_init page_end
+#+END_SRC
+
+*** Example
+#+BEGIN_SRC bash
+python3 PDFScissors.py document.pdf output.pdf 3 7
+#+END_SRC
+
+This example will extract pages 3, 4, 5, 6, and 7 from =document.pdf= and generate a new document =output.pdf=.
+
+*** How It Works
+How It Works
+1.  Read the source =.PDF=: =PdfReader= loads the input file.
+2.  Validate page numbers: Checks that the range is within bounds and that =page_init <= page_end=.
+3.  Create a writer: =PdfWriter= builds the new =.PDF=.
+4.  Add selected pages: Loops from =page_init-1= to =page_end-1= (0-based indexing) and adds each page to the writer.
+5.  Write the output: Saves the resulting =.PDF= to disk.
+
+*** My Usage
+I use this simple script as a tool amongst my everyday toolkit. Having ensured that the script begins with =#!/usr/bin/env python3= (it already does)
+
+#+BEGIN_SRC bash
+//  Make it executable
+chmod +x /path/to/PDFScissors.py
+
+//  Rename it as any other shell program
+mv /path/to/PDFScissors.py /path/to/scissors
+
+//  Move it to $PATH
+mv /path/to/scissors ~/.local/bin/
+
+//  Ensure that ~/.local/bin/ is in the $PATH
+export PATH="$HOME/.local/bin:$PATH"
+
+
+//  It is also possible to use a symbolic link only:
+ln -s ~/path/to/scissors ~/.local/bin/scissors
+
+//  Ensure it works
+which pdfcut
+#+END_SRC
