@@ -34,10 +34,10 @@ pdfscissor bigfile.pdf - 5 10 | pdftext - chapter.txt
 First extracts pages 5-10 from =bigfile.pdf=, then writes the text of those pages into =chapter.txt=.
 
 *** How It Works
-1. **Open the PDF**: =pdfplumber.open()= reads the file (or standard input stream).
-2. **Iterate pages**: For each page, =page.extract_text()= returns a string with the page's text (or =None= if no text is found).
-3. **Add page separators**: Each page's text is prefixed with a header like =--- Page N ---= for clarity.
-4. **Write output**: If an output file name is given, the combined text is written to that file; otherwise it is printed to standard output.
+1. *Open the PDF*: =pdfplumber.open()= reads the file (or standard input stream).
+2. *Iterate pages*: For each page, =page.extract_text()= returns a string with the page's text (or =None= if no text is found).
+3. *Add page separators*: Each page's text is prefixed with a header like =--- Page N ---= for clarity.
+4. *Write output*: If an output file name is given, the combined text is written to that file; otherwise it is printed to standard output.
 
 ** My Usage
 I keep this script in my everyday toolkit. After ensuring the shebang line (=#!/usr/bin/env python3=) is present:
