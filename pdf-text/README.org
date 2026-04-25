@@ -33,6 +33,13 @@ pdfscissor bigfile.pdf - 5 10 | pdftext - chapter.txt
 #+END_SRC
 First extracts pages 5-10 from =bigfile.pdf=, then writes the text of those pages into =chapter.txt=.
 
+*** Reading from standard input
+When you use =-= or =/dev/stdin= as the input file, =pdf-text= reads the entire PDF from standard input into memory first (because pipes are not seekable). This makes it fully compatible with pipelines, e.g.:
+
+#+BEGIN_SRC bash
+scissors big.pdf - 2 5 | pdftext - pages.txt
+#+END_SRC
+
 *** How It Works
 1. *Open the PDF*: =pdfplumber.open()= reads the file (or standard input stream).
 2. *Iterate pages*: For each page, =page.extract_text()= returns a string with the page's text (or =None= if no text is found).
